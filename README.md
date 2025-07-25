@@ -1,65 +1,65 @@
-# Correlation Analysis – Wastewater Data
+# Análisis de Correlaciones – Datos de Aguas Residuales
 
-## About
+## Acerca del proyecto
 
-Correlation analysis of wastewater treatment data using Pearson, Spearman, and Kendall methods. Includes heatmaps and metric-based comparison. Data is exported from BSM2 MATLAB simulations.
+Este repositorio realiza un análisis de correlaciones de datos del tratamiento de aguas residuales utilizando los métodos de Pearson, Spearman y Kendall. Incluye la generación de mapas de calor y una comparación métrica entre los métodos. Los datos se exportan desde MATLAB (BSM2) en formato CSV y se guardan en la carpeta `data/`, desde donde son leídos por los módulos.
 
-## Project Structure
+## Estructura del proyecto
 
 ```plaintext
 correlaciones/
-├── data/                  # CSV files from MATLAB (influent and effluent)
-├── resultados/            # CSV correlation matrices
+├── data/                  # Archivos CSV desde MATLAB (influyente y efluente)
+├── resultados/            # Matrices de correlación en formato CSV
 ├── graficos/
-│   └── YYYY-MM-DD/        # Heatmap images by date
-├── modulos/               # Python modules (Pearson, Spearman, Kendall, utils)
+│   └── YYYY-MM-DD/        # Imágenes de mapas de calor por fecha
+├── modulos/               # Módulos en Python (Pearson, Spearman, Kendall, utils)
 │   ├── pearson.py
 │   ├── spearman.py
 │   ├── kendall.py
 │   └── utils.py
-├── main.py                # Computes correlation matrices
-├── graficar_heatmaps.py   # Shows/saves heatmaps
-├── comparar_metricas.py   # Compares matrices based on correlation structure
-└── README.md              # Project description
+├── main.py                # Calcula las matrices de correlación
+├── graficar_heatmaps.py   # Muestra/guarda mapas de calor
+├── comparar_metricas.py   # Compara las matrices según estructura
+└── README.md              # Descripción del proyecto
 ```
 
-## Requirements
+## Requisitos
 
-Install dependencies (use virtual environment if desired):
+Instala las dependencias (recomendado usar entorno virtual):
 
 ```bash
 pip install pandas seaborn matplotlib numpy
 ```
 
-## How to Run
+## Cómo ejecutar
 
-1. Export the MATLAB data as `Dyn_Influentav_p.csv` and `Dyn_Effluentav_p.csv`, and place them in the `data/` folder.
+1. Exporta los datos desde MATLAB como `Dyn_Influentav_p.csv` y `Dyn_Effluentav_p.csv`, y colócalos en la carpeta `data/`.
 
-2. Compute correlation matrices:
+2. Calcula las matrices de correlación:
 
 ```bash
 python main.py
 ```
 
-3. Generate and save heatmaps:
+3. Genera y guarda los mapas de calor:
 
 ```bash
 python graficar_heatmaps.py
 ```
 
-4. Compare which correlation method captures the strongest structure:
+4. Compara qué método de correlación captura mejor la estructura del sistema:
 
 ```bash
 python comparar_metricas.py
 ```
 
-## Output
+## Salidas generadas
 
-- Correlation CSVs → `resultados/`
-- Heatmaps (Pearson, Spearman, Kendall) → `graficos/YYYY-MM-DD/`
-- Printed comparison summary in terminal
+- CSVs de correlación → `resultados/`
+- Mapas de calor (Pearson, Spearman, Kendall) → `graficos/YYYY-MM-DD/` (fecha del dia en el que se hicieron, puesta automaticamente por graficar_heatmaps.py)
+- Comparativa impresa en terminal
 
 ---
 
-📁 Developed for the statistical exploration of BSM2 influent/effluent data in environmental engineering workflows.
+📁 Desarrollado para el análisis estadístico de datos de influente/efluente del BSM2 en ingeniería ambiental.
 ```
